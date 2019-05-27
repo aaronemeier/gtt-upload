@@ -1,0 +1,113 @@
+# Gtt configuration file
+# Reference: https://github.com/kriskbx/gitlab-time-tracker/blob/master/documentation.md#configuration
+
+# Include closed issues and merge requests
+# defaults to false
+closed: true
+
+# Limit the query to the given data type
+# available: issues, merge_requests
+# defaults to [issues, merge_requests]
+query:
+- issues
+
+# Limit the parts in the final report
+# available: stats, issues, merge_requests, records
+# defaults to [stats, issues, merge_requests, records]
+report:
+- issues
+- records
+
+# Hide headlines in the report
+# defaults to false
+noHeadlines: true
+
+# Hide warnings in the report
+# defaults to false
+noWarnings: true
+
+# Include issues and merge requests in the report that have no time records
+# defaults to false
+showWithoutTimes: false
+
+# Hours per day
+# defaults to 8
+hoursPerDay: 8
+
+# Days per week
+# defaults to 5
+daysPerWeek: 5
+
+# Weeks per month
+# defaults to 4
+weeksPerMonth: 4
+
+# Include the given columns in the issue table
+# See --issue_columns option for more information
+# defaults to iid, title, spent, total_estimate
+# Note: Available columns to choose from: id, iid, title, project_id, project_namespace, description, labels, milestone, assignee, author, closed, updated_at, created_at, due_date, state, spent, total_spent, total_estimate
+issueColumns:
+- iid
+- title
+- description
+- labels
+- milestone
+
+# Include the given columns in the time record table
+# See --record_columns option for more information
+# defaults to user, date, type, iid, time
+# Note: Available columns to choose from: user, date, type, iid, project_id, project_namespace, time
+recordColumns:
+- user
+- date
+- iid
+- time
+
+# Add columns for each project member to issue and
+# merge request table, including their total time spent
+# defaults to true
+userColumns: false
+
+# Date format
+# Click here for format options: http://momentjs.com/docs/#/displaying/format/
+# defaults to DD.MM.YYYY HH:mm:ss
+dateFormat: DD.MM.YYYY
+
+# Time format
+# See time format configuration below
+# defaults to "[%sign][%days>d ][%hours>h ][%minutes>m ][%seconds>s]"
+# Prints everything in hours
+timeFormat: "[%sign][%hours_overall]"
+
+# Change your timezone
+# default: UTC
+timezone: "Europe/Berlin"
+
+# Output type
+# Available: csv, table, markdown, pdf, xlsx
+# defaults to table
+output: csv
+
+# Only works if using a local configuration file!
+# Extend the global configuration if set to true, pass a string to extend 
+# the configuration file stored at the given path
+# defaults to true
+extend: false
+
+# Change number of concurrent connections/http queries
+# Note: Handle with care, we don't want to spam GitLabs API too much
+# defaults to 10
+_parallel: 20
+
+# Change rows per page (max. 100)
+# defaults to 100
+_perPage: 100
+
+# Verbose output
+_verbose: false
+
+# Check access token validity up front
+_checkToken: true
+
+# Skip parsing the issue/merge_request description for time records
+_skipDescriptionParsing: false
